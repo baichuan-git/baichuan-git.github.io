@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>check</title>
+    <title>飞书多维表格修改器</title>
+    <!-- 引入飞书JS SDK -->
+    <script src="https://lf1-cdn-tos.bytegoofy.com/goofy/locale/zh-CN/lark/external_js_sdk/h5-js-sdk-1.5.23.js"></script>
 </head>
 <body>
-	<h1>Hello World</h1>
+    <button onclick="updateBitable()">修改多维表格</button>
+
+    <script>
+        async function updateBitable() {
+            try {
+                // 1. 获取用户登录凭证
+                const { code } = await window.H5Sdk.auth.getAuthCode();
+
+                // 2. 调用后端API（替换为你的服务器地址）
+                const response = await fetch('https://your-server.com/update-bitable', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                });
+
+                // 3. 处理结果
+                const result = await response.json();
+                alert(result.msg);
+            } catch (error) {
+                console.error('操作失败:', error);
+            }
+        }
+    </script>
 </body>
 </html>
