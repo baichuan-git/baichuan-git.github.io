@@ -4,11 +4,15 @@
     <title>飞书多维表格修改器</title>
     <!-- 引入飞书JS SDK -->
     <script src="https://lf1-cdn-tos.bytegoofy.com/goofy/locale/zh-CN/lark/external_js_sdk/h5-js-sdk-1.5.23.js"></script>
+    <!-- 飞书 debug 工具 -->
+    <script src='https://lf-package-cn.feishucdn.com/obj/feishu-static/op/fe/devtools_frontend/remote-debug-0.0.1-alpha.6.js'></script>
 </head>
 <body>
     <button onclick="updateBitable()">修改多维表格</button>
 
     <script>
+    	const log = console.log.bind(console)
+
         async function updateBitable() {
             try {
                 // 1. 获取用户登录凭证
